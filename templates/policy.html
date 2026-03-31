@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Return Policy - K Mart</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="{{ url_for('index')}}" class="flex items-center gap-2 text-2xl font-bold text-primary">
+                <i class="fas fa-shopping-bag"></i> <span class="italic">K Mart</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="/" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-gray-200">
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+<!-- Header -->
+<div class="bg-blue-600 text-white py-6">
+    <div class="max-w-7xl mx-auto px-4">
+        <h1 class="text-3xl font-bold">Return Policy</h1>
+        <p class="text-blue-100 mt-1">K Mart Customer Support</p>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="max-w-5xl mx-auto bg-white mt-8 p-8 rounded-lg shadow">
+
+    <h2 class="text-2xl font-semibold mb-4">Our Return Policy</h2>
+    <p class="text-gray-600 mb-6">
+        At K Mart, customer satisfaction is our priority. If you are not completely
+        satisfied with your purchase, you may return the product according to the
+        terms below.
+    </p>
+
+    <h3 class="text-xl font-semibold mb-3">1. Return Eligibility</h3>
+    <ul class="list-disc pl-6 text-gray-600 mb-6">
+        <li>Items must be returned within <b>7 days</b> of delivery.</li>
+        <li>Product must be unused and in original packaging.</li>
+        <li>All tags, manuals, and accessories must be included.</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mb-3">2. Non-Returnable Items</h3>
+    <ul class="list-disc pl-6 text-gray-600 mb-6">
+        <li>Used or damaged products</li>
+        <li>Personal care items</li>
+        <li>Gift cards or downloadable products</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mb-3">3. Refund Process</h3>
+    <p class="text-gray-600 mb-6">
+        Once we receive and inspect the returned item, your refund will be processed.
+        The refund will be credited to your original payment method within
+        <b>5–7 business days</b>.
+    </p>
+
+    <h3 class="text-xl font-semibold mb-3">4. Return Shipping</h3>
+    <p class="text-gray-600 mb-6">
+        Customers may need to pay return shipping charges unless the product
+        was received damaged or incorrect.
+    </p>
+
+    <h3 class="text-xl font-semibold mb-3">5. How to Request a Return</h3>
+    <ol class="list-decimal pl-6 text-gray-600 mb-6">
+        <li>Go to your order history.</li>
+        <li>Select the product you want to return.</li>
+        <li>Click the <b>Request Return</b> button.</li>
+        <li>Our support team will contact you within 24 hours.</li>
+    </ol>
+
+    <h3 class="text-xl font-semibold mb-3">Need Help?</h3>
+    <p class="text-gray-600">
+        If you have questions about returns, please contact our support team
+        through the Contact Us page.
+    </p>
+
+</div>
+
+<!-- Footer -->
+<div class="text-center text-gray-500 text-sm py-6">
+    © 2026 K Mart. All Rights Reserved.
+</div>
+
+</body>
+</html>

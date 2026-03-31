@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers - M Mart</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="{{ url_for('index')}}" class="flex items-center gap-2 text-2xl font-bold text-primary">
+                <i class="fas fa-shopping-bag"></i> <span class="italic">K Mart</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="/" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-gray-200">
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+<!-- Header -->
+<section class="bg-blue-500 text-white py-16 text-center">
+<h2 class="text-4xl font-bold mb-4">Join Our Team</h2>
+<p class="text-lg">Build your career with M Mart</p>
+</section>
+
+
+<!-- About Careers -->
+<section class="max-w-6xl mx-auto py-12 px-4 text-center">
+
+<h2 class="text-3xl font-bold mb-6">Why Work With Us?</h2>
+
+<p class="text-gray-600 max-w-2xl mx-auto">
+M Mart is a fast growing online shopping platform.
+We are always looking for talented and passionate people to join our team.
+</p>
+
+</section>
+
+
+<!-- Job Openings -->
+<section class="max-w-6xl mx-auto px-4 py-12">
+
+<h2 class="text-3xl font-bold text-center mb-10">
+Current Job Openings
+</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div class="bg-white p-6 rounded shadow">
+<h3 class="text-xl font-bold mb-2">Web Developer</h3>
+<p class="text-gray-600 mb-4">Experience with Python / Flask</p>
+<button class="bg-blue-600 text-white px-4 py-2 rounded">
+Apply Now
+</button>
+</div>
+
+<div class="bg-white p-6 rounded shadow">
+<h3 class="text-xl font-bold mb-2">UI Designer</h3>
+<p class="text-gray-600 mb-4">Design modern website layouts</p>
+<button class="bg-blue-600 text-white px-4 py-2 rounded">
+Apply Now
+</button>
+</div>
+
+<div class="bg-white p-6 rounded shadow">
+<h3 class="text-xl font-bold mb-2">Digital Marketing</h3>
+<p class="text-gray-600 mb-4">Handle social media & ads</p>
+<button class="bg-blue-600 text-white px-4 py-2 rounded">
+Apply Now
+</button>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- Application Form -->
+<section class="bg-white py-12">
+
+<div class="max-w-xl mx-auto px-4">
+
+<h2 class="text-3xl font-bold text-center mb-8">
+Apply For Job
+</h2>
+
+<form action="/apply_job" method="POST" class="space-y-4">
+
+<input type="text" name="name" placeholder="Your Name"
+class="w-full border p-3 rounded">
+
+<input type="email" name="email" placeholder="Your Email"
+class="w-full border p-3 rounded">
+
+<input type="text" name="position" placeholder="Position Applying For"
+class="w-full border p-3 rounded">
+
+<textarea name="message" placeholder="Why should we hire you?"
+class="w-full border p-3 rounded"></textarea>
+
+<button class="bg-blue-600 text-white px-6 py-3 rounded w-full">
+Submit Application
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white text-center p-6 mt-10">
+<p>© 2026 M Mart. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

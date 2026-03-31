@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up Page</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#eecda3,#ef629f);
+}
+
+.container{
+display:flex;
+width:850px;
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(15px);
+border-radius:30px;
+overflow:hidden;
+box-shadow:0 15px 35px rgba(0,0,0,0.2);
+border:1px solid rgba(255,255,255,0.3);
+}
+
+.image-section{
+flex:1;
+background:url('https://images.unsplash.com/photo-1509023464722-18d996393ca8?auto=format&fit=crop&q=80&w=1000') no-repeat center/cover;
+}
+
+.form-section{
+flex:1.2;
+padding:40px;
+color:#4a1a1a;
+}
+
+h2{
+font-size:2.2rem;
+margin-bottom:20px;
+text-align:center;
+}
+
+.input-row{
+display:flex;
+gap:15px;
+}
+
+.input-group{
+margin-bottom:15px;
+flex:1;
+}
+
+.input-group input,
+.input-group select{
+width:100%;
+padding:10px 5px;
+background:transparent;
+border:none;
+border-bottom:2px solid rgba(74,26,26,0.3);
+outline:none;
+font-size:1rem;
+}
+
+.btn{
+width:100%;
+padding:12px;
+border:none;
+border-radius:25px;
+background:linear-gradient(to right,#d4838d,#b56b74);
+color:white;
+font-size:1.1rem;
+font-weight:bold;
+cursor:pointer;
+margin-top:10px;
+}
+
+.footer-links{
+text-align:center;
+margin-top:20px;
+font-size:0.9rem;
+}
+
+.footer-links a{
+color:#4a1a1a;
+text-decoration:none;
+font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="image-section"></div>
+
+<div class="form-section">
+
+<h2>Sign Up</h2>
+
+<form action="{{ url_for('signup') }}" method="POST">
+
+<div class="input-row">
+
+<div class="input-group">
+<input type="text" name="first_name" placeholder="First Name" required>
+</div>
+
+<div class="input-group">
+<input type="text" name="last_name" placeholder="Last Name" required>
+</div>
+
+</div>
+
+<div class="input-group">
+<input type="email" name="email" placeholder="Email Address" required>
+</div>
+
+<div class="input-group">
+<input type="tel" name="mobile" placeholder="Mobile Number" required>
+</div>
+
+<div class="input-group">
+<select name="gender" required>
+<option value="">Select Gender</option>
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+</select>
+</div>
+
+<div class="input-group">
+<input type="password" name="password" placeholder="Password" required>
+</div>
+
+<button type="submit" class="btn">Create Account</button>
+
+<div class="footer-links">
+<span>Already have an account?</span>
+<a href="{{ url_for('login') }}">Login</a>
+</div>
+
+</form>
+
+</div>
+</div>
+
+</body>
+</html>

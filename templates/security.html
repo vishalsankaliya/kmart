@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Policy - K Mart</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="{{ url_for('index')}}" class="flex items-center gap-2 text-2xl font-bold text-primary">
+                <i class="fas fa-shopping-bag"></i> <span class="italic">K Mart</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="/" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-gray-200">
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+<!-- Page Header -->
+<div class="bg-white shadow">
+    <div class="max-w-5xl mx-auto py-8 px-4">
+        <h2 class="text-3xl font-bold text-gray-800">Security Policy</h2>
+        <p class="text-gray-600 mt-2">Your safety and data protection are important to us.</p>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="max-w-5xl mx-auto bg-white mt-8 p-8 rounded-lg shadow">
+
+    <h3 class="text-xl font-semibold mb-3 text-gray-800">1. Secure Transactions</h3>
+    <p class="text-gray-600 mb-6">
+        All payments on K-Mart are processed through secure payment gateways.
+        We use encryption technologies to protect your payment information.
+    </p>
+
+    <h3 class="text-xl font-semibold mb-3 text-gray-800">2. Data Protection</h3>
+    <p class="text-gray-600 mb-6">
+        Your personal information such as name, email, and address is stored securely.
+        We never sell or share your personal information with unauthorized third parties.
+    </p>
+
+    <h3 class="text-xl font-semibold mb-3 text-gray-800">3. Account Safety</h3>
+    <p class="text-gray-600 mb-6">
+        Users are responsible for maintaining the confidentiality of their account login
+        details. Please choose a strong password and do not share it with others.
+    </p>
+
+    <h3 class="text-xl font-semibold mb-3 text-gray-800">4. Fraud Prevention</h3>
+    <p class="text-gray-600 mb-6">
+        K-Mart continuously monitors transactions to detect and prevent fraudulent
+        activities to ensure a safe shopping environment.
+    </p>
+
+    <h3 class="text-xl font-semibold mb-3 text-gray-800">5. Reporting Security Issues</h3>
+    <p class="text-gray-600">
+        If you notice any suspicious activity or security issues on our website,
+        please contact our support team immediately.
+    </p>
+
+</div>
+
+<!-- Footer -->
+<div class="bg-gray-900 text-gray-400 text-center py-6 mt-10">
+    <p>© 2026 K-Mart. All Rights Reserved.</p>
+</div>
+
+</body>
+</html>

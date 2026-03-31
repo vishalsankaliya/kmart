@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Search Results</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<div class="container mx-auto px-6 py-10">
+
+<h2 class="text-2xl font-bold mb-6">
+Search Results for "{{ query }}"
+</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
+{% for product in products %}
+
+<div class="bg-white p-4 rounded shadow">
+
+<img src="{{ product.image }}" class="h-40 mx-auto object-contain">
+
+<h3 class="font-semibold mt-3">
+{{ product.name }}
+</h3>
+
+<p class="text-blue-600 font-bold">
+₹{{ product.price }}
+</p>
+
+<a href="{{ url_for('product_detail', product_id=product.id) }}"
+class="inline-block mt-3 border border-blue-600 text-blue-600 px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600 hover:text-white transition">
+
+View Product
+
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+</html>

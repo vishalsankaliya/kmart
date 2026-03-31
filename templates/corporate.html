@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corporate Information - K Mart</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="{{ url_for('index')}}" class="flex items-center gap-2 text-2xl font-bold text-primary">
+                <i class="fas fa-shopping-bag"></i> <span class="italic">K Mart</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="/" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-gray-200">
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+<!-- Page Header -->
+<section class="bg-blue-500 text-white py-16 text-center">
+    <h2 class="text-4xl font-bold mb-4">Corporate Information</h2>
+    <p class="text-lg max-w-2xl mx-auto">
+        Learn more about K-Mart, our mission, vision and commitment to providing the best online shopping experience.
+    </p>
+</section>
+
+<!-- About Company -->
+<section class="py-12">
+<div class="max-w-6xl mx-auto px-4">
+
+<h3 class="text-3xl font-bold text-gray-800 mb-4">About K-Mart</h3>
+
+
+<p class="text-gray-600 leading-relaxed mb-6">
+K-Mart is an online shopping platform offering a wide range of products including electronics, fashion, home appliances, groceries and more. Our goal is to make shopping simple, fast and affordable for everyone.
+</p>
+
+<p class="text-gray-600 leading-relaxed">
+We are committed to providing high quality products, excellent customer service and a secure shopping experience to our customers.
+</p>
+
+</div>
+</section>
+
+<!-- Mission Vision -->
+<section class="bg-white py-12">
+<div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+
+<div class="bg-gray-50 p-6 rounded-lg shadow">
+<h3 class="text-2xl font-bold text-blue-600 mb-3">Our Mission</h3>
+<p class="text-gray-600">
+To deliver high quality products at affordable prices while ensuring a smooth and trusted online shopping experience.
+</p>
+</div>
+
+<div class="bg-gray-50 p-6 rounded-lg shadow">
+<h3 class="text-2xl font-bold text-blue-600 mb-3">Our Vision</h3>
+<p class="text-gray-600">
+To become one of the most trusted and innovative online shopping platforms in the world.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- Core Values -->
+<section class="py-12">
+<div class="max-w-6xl mx-auto px-4">
+
+<h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Our Core Values</h3>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="bg-white p-6 rounded-lg shadow text-center">
+<h4 class="text-xl font-semibold mb-2">Customer First</h4>
+<p class="text-gray-600">Customer satisfaction is our top priority.</p>
+</div>
+
+<div class="bg-white p-6 rounded-lg shadow text-center">
+<h4 class="text-xl font-semibold mb-2">Quality Products</h4>
+<p class="text-gray-600">We provide only trusted and high quality products.</p>
+</div>
+
+<div class="bg-white p-6 rounded-lg shadow text-center">
+<h4 class="text-xl font-semibold mb-2">Innovation</h4>
+<p class="text-gray-600">We continuously improve our technology and services.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-400 py-6 text-center">
+<p>© 2026 K-Mart. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

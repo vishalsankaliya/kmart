@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - K Mart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2874f0', secondary: '#fb641b', dark: '#212121', light: '#f0f0f0'
+                    },
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="{{ url_for('index')}}" class="flex items-center gap-2 text-2xl font-bold text-primary">
+                <i class="fas fa-shopping-bag"></i> <span class="italic">K Mart</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="/" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-gray-200">
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <div class="bg-primary text-white py-12 text-center">
+        <h1 class="text-3xl md:text-4xl font-bold mb-2">Get in Touch</h1>
+        <p class="opacity-90">We'd love to hear from you. Here's how you can reach us.</p>
+    </div>
+
+    <div class="container mx-auto px-4 py-12 -mt-8">
+        <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+
+            <!-- Contact Info Sidebar -->
+            <div class="bg-secondary text-white p-10 md:w-2/5 flex flex-col justify-between relative overflow-hidden">
+                <!-- Background Decoration -->
+                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
+                <div class="absolute top-10 -left-10 w-20 h-20 bg-white/10 rounded-full"></div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-8">Contact Information</h3>
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Address</h4>
+                                <p class="text-white/90 text-sm">123 Commerce St, Tech City,<br>New York, NY 10001</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone-alt text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Phone</h4>
+                                <p class="text-white/90 text-sm">+1 (555) 123-4567</p>
+                                <p class="text-white/90 text-sm">+1 (555) 987-6543</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Email</h4>
+                                <p class="text-white/90 text-sm">support@kmart.com</p>
+                                <p class="text-white/90 text-sm">info@kmart.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <h4 class="font-bold mb-4">Follow Us</h4>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-secondary transition transform hover:-translate-y-1"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-secondary transition transform hover:-translate-y-1"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-secondary transition transform hover:-translate-y-1"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-secondary transition transform hover:-translate-y-1"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="p-10 md:w-3/5">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h3>
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-3 text-gray-400"><i class="fas fa-user"></i></span>
+                                <input type="text" placeholder="Your Name"
+                                    class="w-full pl-10 border border-gray-300 rounded-lg px-4 py-2.5 focus:border-primary focus:outline-none bg-gray-50 focus:bg-white transition">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-3 text-gray-400"><i class="fas fa-envelope"></i></span>
+                                <input type="email" placeholder="Your Email"
+                                    class="w-full pl-10 border border-gray-300 rounded-lg px-4 py-2.5 focus:border-primary focus:outline-none bg-gray-50 focus:bg-white transition">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                        <input type="text" placeholder="How can we help?"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:border-primary focus:outline-none bg-gray-50 focus:bg-white transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                        <textarea rows="4" placeholder="Write your message here..."
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:border-primary focus:outline-none bg-gray-50 focus:bg-white transition resize-none"></textarea>
+                    </div>
+                    <button type="button"
+                        class="bg-primary text-white px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-blue-600 transition w-full md:w-auto transform hover:-translate-y-0.5 active:scale-95">
+                        Send Message <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="mt-12">
+            <h3 class="text-xl font-bold text-gray-800 mb-4 ml-2">Find Us Here</h3>
+            <div class="rounded-xl overflow-hidden shadow-md h-[400px] border border-gray-200">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.119763973046!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1645564756836!5m2!1sen!2sin"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-6 text-center mt-12">
+        <p>&copy; 2026 K Mart. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K Mart - Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2874f0', // Flipkart Blue
+                        secondary: '#fb641b', // Flipkart Orange
+                        dark: '#212121',
+                        light: '#f0f0f0'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+
+
+<!--    &lt;!&ndash; Page Loader &ndash;&gt;-->
+<!--    <div id="page-loader" class="loader-container">-->
+<!--        <div class="loader"></div>-->
+<!--    </div>-->
+
+    <!-- Top Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <!-- Main Nav -->
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Logo -->
+            <a class="flex items-center gap-2 text-2xl font-bold text-primary">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="italic">K Mart</span>
+            </a>
+
+            <!-- Search Bar (Hidden on mobile, visible on md+) -->
+            <div class="hidden md:flex flex-1 mx-8 relative">
+                <form action="{{ url_for('search') }}" method="GET" class="flex w-full">
+
+                    <input type="text"
+                    name="q"
+                    placeholder="Search for products, brands and more"
+                    class="w-full py-2 px-4 rounded-l-md border border-gray-300 focus:outline-none focus:border-primary bg-gray-50">
+
+                    <button type="submit"
+                    class="bg-primary text-white px-6 py-2 rounded-r-md hover:bg-blue-600 transition">
+                        <i class="fas fa-search"></i>
+                    </button>
+
+                </form>
+            </div>
+<!-- User Section -->
+{% if logged_in %}
+
+<div class="relative group flex items-center gap-3">
+
+    <!-- Profile Name -->
+    <a href="{{ url_for('profile') }}" class="font-semibold text-gray-700 hover:text-primary">
+        <i class="fas fa-user-circle text-xl"></i>
+        {{ session.get('user_name') }}
+    </a>
+
+    <!-- Dropdown Menu -->
+    <div class="absolute right-0 top-8 w-48 bg-white shadow-lg rounded-md hidden group-hover:block z-50">
+
+        <a href="{{ url_for('profile') }}"
+           class="block px-4 py-2 hover:bg-gray-100">
+           My Profile
+        </a>
+
+        <a href="{{ url_for('logout') }}"
+           class="block px-4 py-2 text-red-500 hover:bg-gray-100">
+           Logout
+        </a>
+
+    </div>
+
+</div>
+
+{% else %}
+
+<a href="{{ url_for('login') }}"
+class="px-4 py-2 bg-primary text-white rounded">
+Login
+</a>
+
+{% endif %}
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-2xl text-gray-700">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Secondary Nav (Categories) -->
+        <div class="bg-white border-t border-gray-100 hidden md:block">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center justify-between py-2 text-sm font-medium text-gray-700">
+                    <a href="{{ url_for('electronics')}}" class="hover:text-primary transition">Electronics</a>
+                    <a href="{{ url_for('appliance')}}" class="hover:text-primary transition">TVs & Appliances</a>
+                    <a href="{{ url_for('men')}}" class="hover:text-primary transition">Men</a>
+                    <a href="{{ url_for('women')}}" class="hover:text-primary transition">Women</a>
+                    <a href="{{ url_for('kids')}}" class="hover:text-primary transition">Baby & Kids</a>
+                    <a href="{{ url_for('home')}}" class="hover:text-primary transition">Home & Furniture</a>
+                    <a href="{{ url_for('sports')}}" class="hover:text-primary transition">Sports, Books & More</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="min-h-screen pb-12">
+
+        <!-- Hero Section -->
+        <section class="mb-8">
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner h-[250px] md:h-[400px] lg:h-[450px]">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active h-full relative">
+                        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=2070"
+                            class="d-block w-full h-full object-cover" alt="Shopping Sale">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex flex-col justify-center px-8 md:px-16 text-white">
+                            <h2 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-md animate-fade-in-up">Big Summer
+                                Sale</h2>
+                            <p class="text-lg md:text-2xl mb-6 drop-shadow-md">Up to 80% Off on Electronics & Fashion
+                            </p>
+                            <a href="{{ url_for('products') }}"
+                            class="inline-flex items-center gap-2 bg-secondary text-white px-6 py-2.5 text-sm font-semibold rounded-full shadow-md hover:bg-orange-600 hover:shadow-lg transition-all duration-300">
+                            <i class="fas fa-shopping-cart text-xs"></i>
+                            Shop Now
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item h-full relative">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.jngCe7THF9RyUMqBs3Lw6gHaDt?pid=Api&P=0&h=180"
+                            class="d-block w-full h-full object-cover" alt="New Arrivals">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex flex-col justify-center px-8 md:px-16 text-white">
+                            <h2 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-md">New Arrivals</h2>
+                            <p class="text-lg md:text-2xl mb-6 drop-shadow-md">Check out the latest trends in tech.</p>
+                            <a href="{{ url_for('products') }}">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item h-full relative">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=2070"
+                            class="d-block w-full h-full object-cover" alt="Fashion">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex flex-col justify-center px-8 md:px-16 text-white">
+                            <h2 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-md">Fashion Week</h2>
+                            <p class="text-lg md:text-2xl mb-6 drop-shadow-md">Upgrade your wardrobe today.</p>
+                            <a href="{{ url_for('products') }}">
+                                </a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="container mx-auto px-4 mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 border-l-4 border-primary pl-3">Shop by Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- Category Cards -->
+                <div
+                    class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 text-center cursor-pointer border border-transparent hover:border-gray-200">
+                    <div
+                        class="w-16 h-16 bg-blue-50 rounded-full mx-auto mb-4 flex items-center justify-center text-primary text-2xl group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                        <a href="{{ url_for('appliance')}}" class="hover:text-primary transition"><i class="fas fa-mobile-alt"></i></a>
+                    </div>
+                    <h3 class="font-medium text-gray-700 group-hover:text-primary transition">TVs & Appliances</h3>
+                </div>
+                <div
+                    class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 text-center cursor-pointer border border-transparent hover:border-gray-200">
+                    <div
+                        class="w-16 h-16 bg-green-50 rounded-full mx-auto mb-4 flex items-center justify-center text-green-600 text-2xl group-hover:bg-green-600 group-hover:text-white transition-colors duration-300">
+                        <a href="{{ url_for('electronics')}}" class="block">
+                        <i class="fas fa-laptop"></i>
+                        </a>
+                    </div>
+                    <h3 class="font-medium text-gray-700 group-hover:text-green-600 transition">Electronics</h3>
+                </div>
+                <div
+                    class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 text-center cursor-pointer border border-transparent hover:border-gray-200">
+                    <div
+                        class="w-16 h-16 bg-purple-50 rounded-full mx-auto mb-4 flex items-center justify-center text-purple-600 text-2xl group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                        <a href="{{ url_for('men')}}" class="hover:text-primary transition"><i class="fas fa-tshirt"></i></a>
+                    </div>
+                    <h3 class="font-medium text-gray-700 group-hover:text-purple-600 transition">Fashion</h3>
+                </div>
+                <div
+                    class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 text-center cursor-pointer border border-transparent hover:border-gray-200">
+                    <div
+                        class="w-16 h-16 bg-orange-50 rounded-full mx-auto mb-4 flex items-center justify-center text-orange-600 text-2xl group-hover:bg-orange-600 group-hover:text-white transition-colors duration-300">
+                        <a href="{{ url_for('home')}}" class="hover:text-primary transition"><i class="fas fa-couch"></i></a>
+                    </div>
+                    <h3 class="font-medium text-gray-700 group-hover:text-orange-600 transition">Home</h3>
+                </div>
+                <div
+                    class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 text-center cursor-pointer border border-transparent hover:border-gray-200">
+                    <div
+                        class="w-16 h-16 bg-pink-50 rounded-full mx-auto mb-4 flex items-center justify-center text-pink-600 text-2xl group-hover:bg-pink-600 group-hover:text-white transition-colors duration-300">
+                        <a href="{{ url_for('women')}}" class="hover:text-primary transition"><i class="fas fa-heart"></i></a>
+                    </div>
+                    <h3 class="font-medium text-gray-700 group-hover:text-pink-600 transition">Beauty</h3>
+                </div>
+                <div
+                    class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 text-center cursor-pointer border border-transparent hover:border-gray-200">
+                    <div
+                        class="w-16 h-16 bg-teal-50 rounded-full mx-auto mb-4 flex items-center justify-center text-teal-600 text-2xl group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
+                        <a href="{{ url_for('sports')}}" class="hover:text-primary transition"><i class="fas fa-volleyball-ball"></i></a>
+                    </div>
+                    <h3 class="font-medium text-gray-700 group-hover:text-teal-600 transition">Sports</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="container mx-auto px-4 mb-12">
+            <div class="flex justify-between items-end mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-secondary pl-3">
+                    Featured Products
+                </h2>
+                <a href="{{ url_for('products')}}" class="text-primary font-semibold hover:underline">
+                    View All
+                </a>
+            </div>
+
+            <!-- 👇 IMPORTANT: Grid Added Here -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+                {% for product in featured_products %}
+                <div class="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 relative">
+
+                    {% if product.discount %}
+                    <div class="absolute top-3 left-3 bg-secondary text-white text-xs font-bold px-2 py-1 rounded">
+                        -{{ product.discount }}%
+                    </div>
+                    {% endif %}
+
+                    <div class="relative overflow-hidden h-64 p-8 flex items-center justify-center bg-gray-50">
+                        <img src="{{ product.image }}"
+                             class="max-h-full object-contain transform group-hover:scale-110 transition duration-500">
+
+                        <div class="absolute bottom-0 left-0 right-0 bg-white/90 p-4 translate-y-full group-hover:translate-y-0 transition duration-300 flex justify-center gap-4 shadow-top">
+                            <button class="text-gray-1000 hover:text-primary transition">
+                            </button>
+                            <a href="{{ url_for('product_detail', product_id=product.id) }}">
+                                <i class="far fa-eye text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="p-4">
+                        <div class="text-xs text-gray-500 mb-1">{{ product.category }}</div>
+
+                        <h3 class="font-medium text-gray-800 mb-2 truncate group-hover:text-primary transition">
+                            {{ product.name }}
+                        </h3>
+
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-lg font-bold text-gray-900">
+                                    ₹{{ product.price }}
+                                </span>
+
+                                {% if product.old_price %}
+                                <span class="text-sm text-gray-400 line-through ml-2">
+                                    ₹{{ product.old_price }}
+                                </span>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                {% endfor %}
+
+            </div>
+        </section>
+
+
+        <!-- Customer Reviews Section -->
+<section class="bg-gray-50 py-8 mb-8">
+    <div class="container mx-auto px-4 max-w-5xl">
+
+        <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">
+            What Our Customers Say
+        </h2>
+
+        <!-- Review Form -->
+        <div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md mb-10">
+
+            <form action="/add_customer_review" method="POST">
+
+                <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                class="w-full border border-gray-300 rounded-md p-3"
+                required>
+
+                <textarea
+                name="message"
+                placeholder="Write your review..."
+                rows="4"
+                class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </textarea>
+
+                <select
+                name="rating"
+                class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-400">
+
+                    <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                    <option value="4">⭐⭐⭐⭐ Very Good</option>
+                    <option value="3">⭐⭐⭐ Good</option>
+                    <option value="2">⭐⭐ Average</option>
+                    <option value="1">⭐ Poor</option>
+
+                </select>
+
+                <button
+                type="submit"
+                class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition">
+
+                Submit Review
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- Reviews List -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            {% for review in reviews %}
+
+            <div class="bg-white p-5 rounded-lg shadow">
+
+                <h3 class="font-semibold text-lg text-gray-800">
+                    {{ review.name }}
+                </h3>
+
+                <p class="text-yellow-500 text-sm mb-2">
+                    ⭐ {{ review.rating }}/5
+                </p>
+
+                <p class="text-gray-600 text-sm">
+                    {{ review.message }}
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+        <!-- Newsletter Section -->
+<section class="bg-gradient-to-r from-primary to-blue-600 py-16 text-white">
+    <div class="container mx-auto px-4 text-center">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Subscribe to our Newsletter
+        </h2>
+
+        <p class="mb-8 text-blue-100 max-w-lg mx-auto">
+            Get the latest updates on new products and upcoming sales.
+        </p>
+
+        <!-- Newsletter Form -->
+        <form action="/subscribe" method="POST" class="max-w-md mx-auto flex gap-2">
+
+            <input
+            type="email"
+            name="email"
+            placeholder="Your email address"
+            required
+            class="flex-1 py-3 px-6 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+
+            <button
+            type="submit"
+            class="bg-secondary text-white px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-lg">
+
+            Subscribe
+
+            </button>
+
+        </form>
+
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-lg font-bold mb-4">About K Mart</h4>
+                    <a href="/contact">
+                    <p class="text-gray-400 text-sm hover:text-white cursor-pointer">
+                    Contact Us
+                    </p>
+                    </a>
+
+                    <a href="/about">
+                    <p class="text-gray-400 text-sm hover:text-white cursor-pointer">
+                    About Us
+                    </p>
+                    </a>
+
+                    <a href="/careers">
+                    <p class="text-gray-400 text-sm hover:text-white cursor-pointer">
+                    Careers
+                    </p>
+                    </a>
+
+                    <a href="/corporate">
+                    <p class="text-gray-400 text-sm hover:text-white cursor-pointer">
+                    Corporate Information
+                    </p>
+                    </a>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Help</h4>
+
+                    <a href="/payments">
+                    <p class="text-gray-400 text-sm hover:text-white cursor-pointer">
+                    payments
+                    </p>
+                    </a>
+
+                    <a href="/shipping">
+                    <p class="text-gray-400 text-sm hover:text-white cursor-pointer">
+                    shipping
+                    </p>
+                    </a>
+
+                    <a href="/cancellation">
+                    <p class="text-gray-400 text-sm hover:text-white cursor-pointer">
+                    Cancellation & Returns
+                    </p>
+                    </a>
+
+                    <a href="/faq">
+                    <p class="text-gray-400 text-sm hover:text-white cursor-pointer">
+                    FAQ
+                    </p>
+                    </a>
+
+                </div>
+                <div>
+
+                    <h4 class="text-lg font-bold mb-4">Policy</h4>
+
+                    <a href="/policy">
+                    <p class="text-gray-400 text-sm hover:text-white cursor-pointer">
+                    Return Policy
+                    </p>
+                    </a>
+
+                    <a href="/terms">
+                    <p class="text-gray-400 text-sm hover:text-white cursor-pointer">
+                    Terms of Use
+                    </p>
+                    </a>
+
+                    <a href="/security">
+                    <p class="text-gray-400 text-sm hover:text-white cursor-pointer">
+                    Security
+                    </p>
+                    </a>
+
+                    <a href="/privacy">
+                    <p class="text-gray-400 text-sm hover:text-white cursor-pointer">
+                    Privacy
+                    </p>
+                    </a>
+
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Social</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-white hover:text-primary text-xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-primary text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-primary text-xl"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 text-center text-gray-400 text-sm">
+                &copy; 2026 K Mart. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/products-db.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews - K Mart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2874f0', secondary: '#fb641b', dark: '#212121', light: '#f0f0f0'
+                    },
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        .star-rating i {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .star-rating i.active {
+            color: #fb641b;
+            /* Secondary color (Orange) */
+        }
+    </style>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="{{ url_for('index')}}" class="flex items-center gap-2 text-2xl font-bold text-primary">
+                <i class="fas fa-shopping-bag"></i> <span class="italic">K Mart</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="hover:text-primary font-medium">Home</a>
+                <a href="products.html" class="hover:text-primary font-medium">All Products</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-12">
+
+            <!-- Reviews List Section -->
+            <div class="w-full lg:w-2/3">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-3xl font-bold text-gray-800">Customer Reviews</h1>
+                    <div class="flex items-center gap-2">
+                        <span class="text-2xl font-bold text-gray-800">4.5</span>
+                        <div class="text-yellow-400 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm">(1,245 reviews)</span>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Review 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-4">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg"
+                                    class="w-12 h-12 rounded-full object-cover border">
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Sarah Johnson</h4>
+                                    <div class="text-yellow-400 text-xs flex gap-1">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-sm text-gray-400">2 days ago</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">"Absolutely love the quality of products (iPhone 14)!
+                            The delivery was super fast and the packaging was excellent. Will definitely shop again."
+                        </p>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-4">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                                    class="w-12 h-12 rounded-full object-cover border">
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Michael Brown</h4>
+                                    <div class="text-yellow-400 text-xs flex gap-1">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="far fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-sm text-gray-400">1 week ago</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">"Great Nike sneakers. I bought them for running and
+                            they are very comfortable. The only issue was the size, it runs a bit small."</p>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-4">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg"
+                                    class="w-12 h-12 rounded-full object-cover border">
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Emily Davis</h4>
+                                    <div class="text-yellow-400 text-xs flex gap-1">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-sm text-gray-400">2 weeks ago</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">"The fashion collection is trendy and affordable. I
+                            ordered a few dresses and they fit perfectly. Highly recommended for fashion lovers!"</p>
+                        <div class="mt-4 flex gap-2">
+                            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=100"
+                                class="w-16 h-16 object-cover rounded border">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More -->
+                <div class="text-center mt-8">
+                    <button class="text-primary font-bold hover:underline">Load More Reviews</button>
+                </div>
+            </div>
+
+            <!-- Add Review Form Section -->
+            <div class="w-full lg:w-1/3">
+                <div class="bg-white p-6 rounded-lg shadow-lg sticky top-24">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6 border-b pb-2">Write a Review</h3>
+
+                    <form id="reviewForm">
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Your Rating</label>
+                            <div class="star-rating text-2xl text-gray-300 flex gap-2" id="starContainer">
+                                <i class="fas fa-star" data-value="1"></i>
+                                <i class="fas fa-star" data-value="2"></i>
+                                <i class="fas fa-star" data-value="3"></i>
+                                <i class="fas fa-star" data-value="4"></i>
+                                <i class="fas fa-star" data-value="5"></i>
+                            </div>
+                            <input type="hidden" id="ratingValue" name="rating" value="0">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                            <input type="text" placeholder="John Doe"
+                                class="w-full border border-gray-300 rounded px-4 py-2 focus:border-primary focus:outline-none bg-gray-50">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Review Title</label>
+                            <input type="text" placeholder="Example: Great Product!"
+                                class="w-full border border-gray-300 rounded px-4 py-2 focus:border-primary focus:outline-none bg-gray-50">
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Your Review</label>
+                            <textarea rows="4" placeholder="Share your experience..."
+                                class="w-full border border-gray-300 rounded px-4 py-2 focus:border-primary focus:outline-none bg-gray-50"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-primary text-white font-bold py-3 rounded shadow hover:bg-blue-600 transition">Submit
+                            Review</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-6 text-center mt-12">
+        <p>&copy; 2026 K Mart. All rights reserved.</p>
+    </footer>
+
+    <!-- Script for Star Rating Interaction -->
+    <script>
+        const stars = document.querySelectorAll('#starContainer i');
+        const ratingInput = document.getElementById('ratingValue');
+
+        stars.forEach(star => {
+            star.addEventListener('click', function () {
+                const value = this.getAttribute('data-value');
+                ratingInput.value = value;
+                updateStars(value);
+            });
+
+            star.addEventListener('mouseover', function () {
+                const value = this.getAttribute('data-value');
+                updateStars(value);
+            });
+
+            star.addEventListener('mouseout', function () {
+                updateStars(ratingInput.value);
+            });
+        });
+
+        function updateStars(value) {
+            stars.forEach(s => {
+                if (s.getAttribute('data-value') <= value) {
+                    s.classList.add('active');
+                    s.classList.remove('text-gray-300');
+                    s.classList.add('text-secondary'); // Orange
+                } else {
+                    s.classList.remove('active');
+                    s.classList.add('text-gray-300');
+                    s.classList.remove('text-secondary');
+                }
+            });
+        }
+
+        document.getElementById('reviewForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you! Your review has been submitted.');
+            this.reset();
+            updateStars(0);
+        });
+    </script>
+</body>
+
+</html>

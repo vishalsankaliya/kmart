@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{{ product.name }}</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+<div class="bg-blue-600 text-white p-4">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+
+<h1 class="text-2xl font-bold">
+K-Mart
+</h1>
+
+<a href="/products" class="bg-white text-blue-600 px-4 py-2 rounded">
+← Back to Products
+</a>
+
+</div>
+</div>
+
+
+<!-- Product Section -->
+<div class="max-w-7xl mx-auto p-6">
+
+<div class="bg-white rounded-xl shadow-lg p-8 grid md:grid-cols-2 gap-10">
+
+<!-- Product Image -->
+<div class="flex justify-center items-center bg-gray-50 p-6 rounded-lg">
+
+<img src="{{ product.image }}"
+alt="{{ product.name }}"
+class="h-96 object-contain hover:scale-110 transition duration-300">
+
+</div>
+
+
+<!-- Product Info -->
+<div>
+
+<h1 class="text-3xl font-bold text-gray-800 mb-3">
+{{ product.name }}
+</h1>
+
+<p class="text-gray-500 mb-4">
+Brand : <span class="font-semibold">{{ product.brand }}</span>
+</p>
+
+<p class="text-4xl font-bold text-green-600 mb-6">
+₹ {{ product.price }}
+</p>
+
+<a href="{{ url_for('add_to_cart', product_id=product.id) }}"
+class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+🛒 Add to Cart
+</a>
+
+</div>
+
+</div>
+
+
+<!-- Review Section -->
+<div class="bg-white rounded-xl shadow-lg p-8 mt-10">
+
+<h2 class="text-2xl font-bold mb-6">
+Customer Reviews
+</h2>
+
+<!-- Review Form -->
+<form action="{{ url_for('add_product_review', product_id=product.id) }}" method="POST">
+
+<input type="text" name="username" placeholder="Your Name"
+class="w-full border p-3 mb-3 rounded" required>
+
+<label class="font-semibold">Rating</label>
+
+<select name="rating" class="w-full border p-3 mb-3 rounded" required>
+<option value="5">⭐⭐⭐⭐⭐</option>
+<option value="4">⭐⭐⭐⭐</option>
+<option value="3">⭐⭐⭐</option>
+<option value="2">⭐⭐</option>
+<option value="1">⭐</option>
+</select>
+
+<textarea name="comment" placeholder="Write your review..."
+class="w-full border p-3 mb-3 rounded" required></textarea>
+
+<button class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+Submit Review
+</button>
+
+</form>
+
+
+<!-- Reviews List -->
+{% for r in reviews %}
+
+<div class="bg-gray-100 p-4 rounded mb-4">
+
+<p class="font-semibold text-lg">
+{{ r.username }}
+</p>
+
+<p class="text-yellow-500">
+Rating : {{ r.rating }} ⭐
+</p>
+
+<p class="text-gray-700 mt-1">
+{{ r.comment }}
+</p>
+
+<p class="text-sm text-gray-500 mt-2">
+{{ r.created_at }}
+</p>
+
+</div>
+
+{% else %}
+
+<p class="text-gray-500">
+No reviews yet.
+</p>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+</html>

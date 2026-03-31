@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ - K Mart Help</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="{{ url_for('index')}}" class="flex items-center gap-2 text-2xl font-bold text-primary">
+                <i class="fas fa-shopping-bag"></i> <span class="italic">K Mart</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="/" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-gray-200">
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+<!-- Page Title -->
+<div class="max-w-4xl mx-auto py-10 px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+
+    <!-- FAQ Item -->
+    <div class="bg-white p-5 rounded-lg shadow mb-4">
+        <h3 class="font-semibold text-lg">1. How do I place an order?</h3>
+        <p class="text-gray-600 mt-2">
+            Browse products, click on the product you want, add it to your cart,
+            and proceed to checkout to place your order.
+        </p>
+    </div>
+
+    <div class="bg-white p-5 rounded-lg shadow mb-4">
+        <h3 class="font-semibold text-lg">2. What payment methods are accepted?</h3>
+        <p class="text-gray-600 mt-2">
+            We accept Credit Card, Debit Card, UPI, Net Banking and Cash on Delivery.
+        </p>
+    </div>
+
+    <div class="bg-white p-5 rounded-lg shadow mb-4">
+        <h3 class="font-semibold text-lg">3. How can I track my order?</h3>
+        <p class="text-gray-600 mt-2">
+            After placing an order, you can track it from the "My Orders" section
+            in your account.
+        </p>
+    </div>
+
+    <div class="bg-white p-5 rounded-lg shadow mb-4">
+        <h3 class="font-semibold text-lg">4. What is the return policy?</h3>
+        <p class="text-gray-600 mt-2">
+            You can return most products within 7 days of delivery if they are
+            unused and in original packaging.
+        </p>
+    </div>
+
+    <div class="bg-white p-5 rounded-lg shadow mb-4">
+        <h3 class="font-semibold text-lg">5. How can I contact customer support?</h3>
+        <p class="text-gray-600 mt-2">
+            You can visit our Contact Us page or email us at support@kmart.com.
+        </p>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<div class="bg-gray-900 text-gray-400 text-center p-4">
+    © 2026 K-Mart. All rights reserved.
+</div>
+
+</body>
+</html>

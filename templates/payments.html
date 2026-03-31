@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help - Payments | K Mart</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="{{ url_for('index')}}" class="flex items-center gap-2 text-2xl font-bold text-primary">
+                <i class="fas fa-shopping-bag"></i> <span class="italic">K Mart</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="/" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-gray-200">
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+<!-- Page Header -->
+<div class="bg-white shadow">
+    <section class="bg-blue-500 text-white py-16 text-center">
+        <h2 class="text-3xl font-bold text-gray-800">Payments Help</h2>
+        <p class="text-3xl font-bold text-gray-500 mt-2">Information about payment methods, refunds and payment issues.</p>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="max-w-6xl mx-auto p-6">
+
+    <!-- Payment Methods -->
+    <div class="bg-white p-6 rounded-lg shadow mb-6">
+        <h3 class="text-xl font-semibold mb-3">Accepted Payment Methods</h3>
+        <ul class="list-disc ml-6 text-gray-600 space-y-2">
+            <li>Credit Card (Visa, MasterCard)</li>
+            <li>Debit Card</li>
+            <li>UPI (Google Pay, PhonePe, Paytm)</li>
+            <li>Net Banking</li>
+            <li>Cash on Delivery (COD)</li>
+        </ul>
+    </div>
+
+    <!-- Payment Failed -->
+    <div class="bg-white p-6 rounded-lg shadow mb-6">
+        <h3 class="text-xl font-semibold mb-3">Payment Failed?</h3>
+        <p class="text-gray-600 mb-3">
+            If your payment fails, please check the following:
+        </p>
+        <ul class="list-disc ml-6 text-gray-600 space-y-2">
+            <li>Check your internet connection</li>
+            <li>Ensure your card details are correct</li>
+            <li>Make sure your bank has approved the transaction</li>
+            <li>Try another payment method</li>
+        </ul>
+    </div>
+
+    <!-- Refund -->
+    <div class="bg-white p-6 rounded-lg shadow mb-6">
+        <h3 class="text-xl font-semibold mb-3">Refund Policy</h3>
+        <p class="text-gray-600">
+            If your payment was successful but the order was not placed, the amount will be refunded to your original
+            payment method within <strong>5–7 business days</strong>.
+        </p>
+    </div>
+
+    <!-- Security -->
+    <div class="bg-white p-6 rounded-lg shadow mb-6">
+        <h3 class="text-xl font-semibold mb-3">Secure Payments</h3>
+        <p class="text-gray-600">
+            K-Mart uses secure payment gateways and SSL encryption to ensure your payment details are safe and protected.
+        </p>
+    </div>
+
+    <!-- Contact -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-xl font-semibold mb-3">Need More Help?</h3>
+        <p class="text-gray-600">
+            If you still have payment issues, please contact our support team.
+        </p>
+        <a href="/contact" class="inline-block mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            Contact Support
+        </a>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<div class="bg-gray-900 text-gray-300 text-center p-4 mt-10">
+    © 2026 K-Mart. All rights reserved.
+</div>
+
+</body>
+</html>

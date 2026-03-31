@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <p>Total Users: {{ users.total_users }}</p>
+    <p>Total Orders: {{ orders.total_orders }}</p>
+    <p>Total Products: {{ products.total_products }}</p>
+
+    <a href="/admin/products">Manage Products</a><br>
+    <a href="/admin/orders">View Orders</a><br>
+    <a href="/admin/users">View Users</a><br>
+    <a href="/admin/add_product">Add Product</a><br>
+    <a href="/admin/logout">Logout</a>
+</body>
+</html>
