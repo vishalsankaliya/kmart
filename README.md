@@ -1,0 +1,1 @@
+Developed a full-stack e-commerce web application (K-Mart) using Python, Flask, and MySQL. Implemented user authentication, product management, shopping cart, and order processing features with secure database integration.
